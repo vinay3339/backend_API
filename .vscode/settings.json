@@ -1,0 +1,10 @@
+{
+    "github.copilot.chat.githubMcpServer.readonly": false,
+    "github.copilot.chat.alternateGptPrompt.enabled": true,
+    "github.copilot.chat.anthropic.thinking.budgetTokens": 32000,
+    "github.copilot.chat.anthropic.tools.websearch.allowedDomains": [
+        ""
+    ],
+    "github.copilot.chat.anthropic.tools.websearch.maxUses": 10,
+    "github.copilot.chat.customAgents.showOrganizationAndEnterpriseAgents": true
+}
