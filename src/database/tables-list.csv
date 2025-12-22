@@ -1,0 +1,65 @@
+Table Name,Purpose,Module,Category
+schools,Store school/institution information,System,Core
+academic_years,Manage academic years and terms,System,Core
+users,Store all user accounts (students/teachers/admins),Authentication,Core
+user_roles,Define user roles and permissions,Authentication,Core
+user_sessions,Track user login sessions,Authentication,Core
+password_history,Store password change history,Authentication,Security
+students,Store student personal information,Student Management,Student
+student_guardians,Store guardian/parent information,Student Management,Student
+student_addresses,Store student addresses,Student Management,Student
+student_documents,Store student document uploads,Student Management,Student
+student_medical_records,Store medical information,Student Management,Student
+student_emergency_contacts,Store emergency contact details,Student Management,Student
+student_previous_schools,Store previous education history,Student Management,Student
+student_enrollment,Track student class enrollments,Student Management,Student
+student_attendance,Daily attendance records,Attendance,Student
+student_leave_requests,Leave applications and approvals,Attendance,Student
+teachers,Store teacher personal information,Teacher Management,Teacher
+teacher_qualifications,Store education qualifications,Teacher Management,Teacher
+teacher_experience,Store work experience,Teacher Management,Teacher
+teacher_subjects,Map teachers to subjects they teach,Teacher Management,Teacher
+teacher_documents,Store teacher document uploads,Teacher Management,Teacher
+teacher_attendance,Daily teacher attendance,Attendance,Teacher
+teacher_leave_requests,Teacher leave applications,Attendance,Teacher
+classes,Store class information (10th, 9th etc),Class Management,Academic
+class_sections,Store sections (A, B, C) for each class,Class Management,Academic
+subjects,Store all subjects,Class Management,Academic
+class_subjects,Map subjects to classes,Class Management,Academic
+class_teachers,Assign class teachers to sections,Class Management,Academic
+timetable,Store class timetable/schedule,Class Management,Academic
+timetable_periods,Individual period details,Class Management,Academic
+exams,Store exam definitions (FA1, SA1 etc),Marks & Exams,Academic
+exam_subjects,Map subjects to specific exams,Marks & Exams,Academic
+exam_timetable,Exam schedule with dates and times,Marks & Exams,Academic
+marks,Store student marks for exams,Marks & Exams,Academic
+grade_system,Define grading scale (A+, A, B etc),Marks & Exams,Academic
+report_cards,Generated report cards,Marks & Exams,Academic
+fee_structures,Define fee structures per class,Finance,Finance
+fee_categories,Fee types (Tuition, Transport, etc),Finance,Finance
+student_fees,Assign fees to students,Finance,Finance
+fee_payments,Track fee payment transactions,Finance,Finance
+fee_receipts,Payment receipt records,Finance,Finance
+fee_concessions,Student fee discounts/scholarships,Finance,Finance
+expenses,School expense records,Finance,Finance
+expense_categories,Expense categorization,Finance,Finance
+salary_structures,Teacher/staff salary definitions,Finance,Finance
+salary_payments,Salary payment records,Finance,Finance
+transport_routes,School bus routes,Transport,Transport
+transport_vehicles,Bus/vehicle information,Transport,Transport
+transport_stops,Bus stops on routes,Transport,Transport
+student_transport,Map students to transport,Transport,Transport
+vehicle_maintenance,Vehicle service records,Transport,Transport
+announcements,School-wide announcements,Communication,System
+notifications,User notifications,Communication,System
+messages,Internal messaging system,Communication,System
+homework,Homework assignments,Academic,Academic
+homework_submissions,Student homework submissions,Academic,Academic
+library_books,Library book catalog,Library,Academic
+library_transactions,Book issue/return records,Library,Academic
+events,School events and activities,Events,System
+event_participants,Track event participation,Events,System
+custom_fields,Store custom field definitions,System,Core
+custom_field_values,Store custom field values,System,Core
+audit_logs,System-wide audit trail,System,Security
+settings,Application settings,System,Core
