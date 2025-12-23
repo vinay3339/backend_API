@@ -9,11 +9,11 @@ class Settings(BaseSettings):
     """Application settings"""
 
     # Database - Use environment variables for production
-    DB_HOST: str = "127.0.0.1"
-    DB_PORT: int = 3306
-    DB_USER: str = "vinaygoud"
-    DB_PASSWORD: str = "vinay3339"
-    DB_NAME: str = "EduPortal"
+    DB_HOST: str = "mysql-1c65d782-tvinaygoud999-0dcf.c.aivencloud.com"
+    DB_PORT: int = 18827
+    DB_USER: str = "avnadmin"
+    DB_PASSWORD: str = "AVNS_plIT8ThLQjs15UIM5Uk"
+    DB_NAME: str = "School_Management_System"
     
     # Alternative: Full database URL (for services like PlanetScale, Railway, etc.)
     DATABASE_URL: str = None
@@ -39,12 +39,7 @@ class Settings(BaseSettings):
     def get_database_url(self) -> str:
         """Get database URL - prioritize DATABASE_URL env var for production"""
         if self.DATABASE_URL:
-            # Clean up the URL if it has placeholder values
-            url = self.DATABASE_URL.strip()
-            if 'username:password@host:port' in url:
-                # This is a template, use individual components instead
-                return f"mysql+pymysql://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
-            return url
+            return self.DATABASE_URL
         return f"mysql+pymysql://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
     
     class Config:
