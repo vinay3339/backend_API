@@ -1,7 +1,14 @@
 """
 Configuration settings for the application
 """
-from pydantic_settings import BaseSettings
+from typing import Optional
+try:
+    from pydantic_settings import BaseSettings
+except ImportError:
+    try:
+        from pydantic import BaseSettings
+    except ImportError:
+        raise ImportError("Please install pydantic-settings: pip install pydantic-settings")
 from functools import lru_cache
 
 
@@ -16,7 +23,7 @@ class Settings(BaseSettings):
     DB_NAME: str = "School_Management_System"
     
     # Alternative: Full database URL (for services like PlanetScale, Railway, etc.)
-    DATABASE_URL: str = None
+    DATABASE_URL: Optional[str] = None
     
     # JWT
     SECRET_KEY: str = "your-secret-key-change-this-in-production"
@@ -45,6 +52,8 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
         case_sensitive = True
+        # For Pydantic v2 compatibility
+        extra = "ignore"
 
 
 @lru_cache()

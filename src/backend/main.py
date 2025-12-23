@@ -6,12 +6,13 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from config import settings
-from database import init_db
 import uvicorn
+from database import init_db
 
 # Import routers
-from routers import auth, students_denormalized, teachers_denormalized, classes_denormalized, exams_denormalized, transport_denormalized
+from routers import auth, students_denormalized, teachers_denormalized, classes_denormalized, exams_denormalized, transport_denormalized, schools, users
 from routers.all_denormalized_routers import attendance_router, subjects_router, marks_router, fee_payments_router, fee_structure_router, timetable_router
+from test_auth import test_router
 
 # Create FastAPI app
 app = FastAPI(
@@ -56,7 +57,10 @@ async def health_check():
 # Include routers
 API_PREFIX = "/api/v1"
 
+app.include_router(test_router, prefix=API_PREFIX)
 app.include_router(auth.router, prefix=API_PREFIX)
+app.include_router(schools.router, prefix=API_PREFIX)
+app.include_router(users.router, prefix=API_PREFIX)
 app.include_router(students_denormalized.router, prefix=API_PREFIX)
 app.include_router(teachers_denormalized.router, prefix=API_PREFIX)
 app.include_router(classes_denormalized.router, prefix=API_PREFIX)
@@ -89,7 +93,7 @@ async def general_exception_handler(request, exc):
 async def startup_event():
     """Initialize database on startup"""
     print(f"Starting {settings.APP_NAME} v{settings.API_VERSION}")
-    print(f"Database URL: {settings.DATABASE_URL.split('@')[1]}")  # Don't log password
+    print(f"Database URL: {settings.get_database_url.split('@')[1] if '@' in settings.get_database_url else 'localhost'}")
     
     # Initialize database tables
     try:
@@ -110,8 +114,7 @@ async def shutdown_event():
 if __name__ == "__main__":
     uvicorn.run(
         "main:app",
-        host="0.0.0.0",
+        host="127.0.0.1",
         port=8000,
-        reload=settings.DEBUG,
-        log_level="info"
+        reload=True
     )
