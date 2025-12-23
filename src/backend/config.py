@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     DB_NAME: str = "EduPortal"
     
     # Alternative: Full database URL (for services like PlanetScale, Railway, etc.)
-    DATABASE_URL: str = f"mysql+pymysql://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+    DATABASE_URL: str = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
     
     # JWT
     SECRET_KEY: str = "your-secret-key-change-this-in-production"
